@@ -1,0 +1,43 @@
+<div class="container p-4">
+    <div class="row">
+        {{#if result}}
+        <div class="col-md-12">
+            <h2>Productos</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Time ago</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each result}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{description}}</td>
+                        <td>${{price}}</td>
+                        <td>{{timeago created_at}}</td>
+                        <td>
+                            <a href="/products-seller/edit-products-seller/{{id}}" class="btn btn-primary">
+                                Editar
+                            </a>
+                            <a href="/products-seller/delete-products-seller/{{id}}" class="btn btn-danger">
+                                Eliminar
+                            </a>
+                        </td>
+                    </tr>                  
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        {{else}}
+        <div class="col-md-12">
+            <h2>No hay productos</h2>
+            <a href="/products-seller/add-products-seller"> Create One</a>      
+        </div>  
+        {{/if}}
+
+    </div>
+</div>
